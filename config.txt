@@ -1,0 +1,25 @@
+1- Vamos instalar via terminal o OpenCV:
+    - pip install opencv-python==3.4.4.19
+    ou
+    - pip install opencv-python
+
+2- Agora outra instalação:
+    - pip install opencv-contrib-python==3.4.4.19
+    ou
+    - pip install opencv-contrib-python
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
