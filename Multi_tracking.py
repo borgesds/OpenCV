@@ -32,7 +32,3 @@ def createTrackerByName(trackerType):
 
     return tracker
 
-
-
-
-
