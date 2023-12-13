@@ -6,7 +6,7 @@ from random import randint
 
 tracker_types = ['BOOSTING', 'MIL', 'KCF', 'TLD', 'MEDIANFLOW', 'MOSSE', 'CSRT']
 
-tracker_type = tracker_types[1]
+tracker_type = tracker_types[6]
 
 # Qual ferramenta usar
 if int(minor_ver) < 3:
@@ -24,8 +24,8 @@ else:
         tracker = cv2.TrackerMedianFlow_create()
     if tracker_type == 'MOSSE':
         tracker = cv2.TrackerMOSSE_create()
-    if tracker_type == 'MCSRT':
-        tracker = cv2.TrackerMCSRT_create()
+    if tracker_type == 'CSRT':
+        tracker = cv2.TrackerCSRT_create()
 
 # Vamos carregar o video
 video = cv2.VideoCapture('videos/race.mp4')
