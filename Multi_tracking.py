@@ -14,7 +14,7 @@ def createTrackerByName(trackerType):
     elif trackerType == tracker_types[2]:
         tracker = cv2.TrackerKCF_create()
     elif trackerType == tracker_types[3]:
-        ttracker = cv2.TrackerTLD_create()
+        tracker = cv2.TrackerTLD_create()
     elif trackerType == tracker_types[4]:
         tracker = cv2.TrackerMedianFlow_create()
     elif trackerType == tracker_types[4]:
@@ -31,4 +31,33 @@ def createTrackerByName(trackerType):
             print(t)
 
     return tracker
+
+
+cap = cv2.VideoCapture('videos/race.mp4')
+
+ok, frame = cap.read()
+
+if not ok:
+    print('Não foi possivel carregar o video!!!')
+    sys.exit(1)
+
+bboxes = []
+colors = []
+
+while True:
+    bbox = cv2.selectROI('MultiTracker', frame)
+    bboxes.append(bbox)
+    colors.append((randint(0, 255), randint(0, 255), randint(0, 255)))
+
+    print('Precione Q para sair da caixa de seleção e começar a rastrear!')
+    print('Precione qualquer outra tecla para selecionar o proximo objeto!')
+
+    # esperar a tecla que o usuario digitar
+    k = cv2.waitKey(0) & 0XFF
+
+    # verificar se digitou o Q
+    if (k == 113):
+        break
+
+print(f'Caixas delimitadoras selecionadas: {bboxes}')
 
