@@ -60,4 +60,4 @@ while True:
         break
 
 print(f'Caixas delimitadoras selecionadas: {bboxes}')
-
+print(f'Cores: {colors}')
