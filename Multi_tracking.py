@@ -61,3 +61,29 @@ while True:
 
 print(f'Caixas delimitadoras selecionadas: {bboxes}')
 print(f'Cores: {colors}')
+
+trackerType = 'CSRT'
+multiTracker = cv2.MultiTracker_create()
+
+# inicializar cada box x
+for bbox in bboxes:
+    multiTracker.add(createTrackerByName(trackerType), frame, bbox)
+
+# percorre o video com as box criadas
+while cap.isOpened():
+    ok, frame = cap.read()
+
+    if not ok:
+        break
+
+    ok, boxes = multiTracker.update(frame)
+
+    for i, newbox in enumerate(boxes):
+        (x, y, w, h) = [int(v) for v in newbox]
+
+        cv2.rectangle(frame, (x, y), (x + w, y + h), colors[i], 2, 1)
+
+        cv2.imshow('MultiTracker', frame)
+
+        if cv2.waitKey(1) & 0XFF == 27:
+            break
