@@ -8,7 +8,7 @@
 2- Agora outra instalação:
     - pip install opencv-contrib-python==3.4.4.19
     ou
-    - pip install opencv-contrib-python==3.4.18.65
+    - pip install opencv-contrib-python==3.4.18.65C
     ou
     - pip install opencv-contrib-python
 
